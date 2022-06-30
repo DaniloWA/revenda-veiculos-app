@@ -2,6 +2,7 @@ import React from "react";
 
 import { TextField, Button, createTheme, ThemeProvider } from "@mui/material";
 import { blue } from "@mui/material/colors";
+import { Routes, Route } from "react-router-dom";
 
 const theme = createTheme({
   components: {
@@ -27,9 +28,9 @@ const theme = createTheme({
 
 const App = () => (
   <ThemeProvider theme={theme}>
-    <h1>Aplicação react</h1>
-    <Button variant="contained" color="primary">
-      Primary
+            <Routes>
+              <Route path={rt.home} element={<h1>home</h1>}></Route>
+            </Routes>
     </Button>
     <Button variant="contained" color="secondary">
       Secondary
