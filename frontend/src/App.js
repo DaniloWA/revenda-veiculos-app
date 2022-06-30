@@ -6,6 +6,7 @@ import React, { Suspense, lazy } from "react";
 import { Routes, Route } from "react-router-dom";
 import { routes as rt } from "./routes/Routes";
 
+
 const theme = createTheme({
   components: {
     MuiTextField: {
