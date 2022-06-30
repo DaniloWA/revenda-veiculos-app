@@ -1,8 +1,10 @@
-import React from "react";
-
-import { TextField, Button, createTheme, ThemeProvider } from "@mui/material";
+import { createTheme, ThemeProvider } from "@mui/material";
 import { blue } from "@mui/material/colors";
+import "bootstrap/dist/css/bootstrap.min.css";
+import { CircularProgress } from "@mui/material";
+import React, { Suspense, lazy } from "react";
 import { Routes, Route } from "react-router-dom";
+import { routes as rt } from "./routes/Routes";
 
 const theme = createTheme({
   components: {
@@ -26,23 +28,28 @@ const theme = createTheme({
   },
 });
 
-const App = () => (
-  <ThemeProvider theme={theme}>
+//const Login = lazy( () => import("./components/login/Login"))
+
+const App = () => {
+  return (
+    <div className="App">
+      {
+        <Suspense
+          fallback={
+            <div className="d-flex justify-content-center mt-5 pt-5">
+              <CircularProgress />
+            </div>
+          }
+        >
+          <ThemeProvider theme={theme}>
             <Routes>
               <Route path={rt.home} element={<h1>home</h1>}></Route>
             </Routes>
-    </Button>
-    <Button variant="contained" color="secondary">
-      Secondary
-    </Button>
-    <Button variant="contained" disabled>
-      Disabled
-    </Button>
-    <Button variant="contained" color="primary" href="#contained-buttons">
-      Link
-    </Button>
-    <TextField />
-  </ThemeProvider>
-);
+          </ThemeProvider>
+        </Suspense>
+      }
+    </div>
+  );
+};
 
 export default App;
