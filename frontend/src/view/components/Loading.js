@@ -1,5 +1,5 @@
 import React from "react";
-import { Typography, Modal, CircularProgress } from "@mui/material";
+import { Typography, Modal, CircularProgress } from "@material-ui/core";
 import { changeLoading } from "../../store/actions/loading.action";
 import { useSelector, useDispatch } from "react-redux";
 
