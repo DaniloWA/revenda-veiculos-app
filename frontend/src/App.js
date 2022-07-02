@@ -6,7 +6,7 @@ import { CircularProgress } from "@material-ui/core";
 import React, { Suspense } from "react";
 import { Routes, Route } from "react-router-dom";
 import { routes as rt } from "./routes/Routes";
-import { ComponentsImport } from "./view/components";
+import { ComponentsImport } from "./view/components/Index";
 import { unstable_createMuiStrictModeTheme } from "@material-ui/core";
 
 const createTheme =
@@ -52,6 +52,7 @@ const App = () => {
           <ThemeProvider theme={theme}>
             <ComponentsImport.Loading></ComponentsImport.Loading>
             <ComponentsImport.Notify></ComponentsImport.Notify>
+            <ComponentsImport.Alert></ComponentsImport.Alert>
             <Routes>
               <Route path={rt.home} element={<h1>home</h1>}></Route>
             </Routes>
