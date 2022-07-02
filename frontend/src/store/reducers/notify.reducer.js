@@ -1,12 +1,12 @@
 import { actionTypes } from "../actions/notify.action";
 
 const initialState = {
-  open: true,
+  open: false,
   horizontal: "center",
   vertical: "top",
-  class: "success",
+  class: "error",
   time: 3000,
-  msg: "Dados Atualizados!",
+  msg: "",
 };
 
 export const notifyReducer = (state = initialState, { type, payload }) => {
