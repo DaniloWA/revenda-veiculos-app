@@ -6,7 +6,7 @@ import { CircularProgress } from "@material-ui/core";
 import React, { Suspense } from "react";
 import { Routes, Route } from "react-router-dom";
 import { routes as rt } from "./routes/Routes";
-import { ComponentsImport } from "./view/components/Index";
+import { ComponentsImport } from "./view/components";
 import { unstable_createMuiStrictModeTheme } from "@material-ui/core";
 
 const createTheme =
@@ -15,18 +15,14 @@ const createTheme =
     : unstable_createMuiStrictModeTheme;
 
 const theme = createTheme({
-  components: {
+  props: {
     MuiTextField: {
-      defaultProps: {
-        fullWidth: true,
-        variant: "outlined",
-      },
+      fullWidth: true,
+      variant: "outlined",
     },
     MuiSelect: {
-      defaultProps: {
-        fullWidth: true,
-        variant: "outlined",
-      },
+      fullWidth: true,
+      variant: "outlined",
     },
   },
   palette: {
@@ -50,11 +46,21 @@ const App = () => {
           }
         >
           <ThemeProvider theme={theme}>
-            <ComponentsImport.Loading></ComponentsImport.Loading>
-            <ComponentsImport.Notify></ComponentsImport.Notify>
-            <ComponentsImport.Alert></ComponentsImport.Alert>
+            <ComponentsImport.Loading />
+            <ComponentsImport.Notify />
+            <ComponentsImport.Alert />
             <Routes>
-              <Route path={rt.home} element={<h1>home</h1>}></Route>
+              <Route
+                path={rt.vehicles}
+                element={() => {
+                  return <h1>Veiculos</h1>;
+                }}
+              ></Route>
+              <Route
+                path={rt.login}
+                element={<ComponentsImport.Auth />}
+              ></Route>
+              <Route path={rt.home} element={<ComponentsImport.Auth />}></Route>
             </Routes>
           </ThemeProvider>
         </Suspense>
