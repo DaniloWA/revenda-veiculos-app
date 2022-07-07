@@ -2,7 +2,7 @@ import { Http } from "../../config/Http";
 import { changeLoading } from "./loading.action";
 import { changeNotify } from "./notify.action";
 
-const actionTypes = {
+export const actionTypes = {
   CHANGE: "REGISTER_CHANGE",
   ERROR: "REGISTER_ERROR",
   SUCCESS: "REGISTER_SUCCESS",
