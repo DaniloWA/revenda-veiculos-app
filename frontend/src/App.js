@@ -1,13 +1,16 @@
-import { createMuiTheme, ThemeProvider } from "@material-ui/core";
+import {
+  createMuiTheme,
+  ThemeProvider,
+  CircularProgress,
+  unstable_createMuiStrictModeTheme,
+} from "@material-ui/core";
 import { blue } from "@material-ui/core/colors";
 import "bootstrap/dist/css/bootstrap.min.css";
 import "./global.css";
-import { CircularProgress } from "@material-ui/core";
 import React, { lazy, Suspense } from "react";
 import { Routes, Route } from "react-router-dom";
 import { routes as rt } from "./routes/Routes";
-import { ComponentsImport } from "./view/components";
-import { unstable_createMuiStrictModeTheme } from "@material-ui/core";
+import { CTImport } from "./view/components";
 
 const Auth = lazy(() => import("./view/components/Auth"));
 const Register = lazy(() => import("./view/components/Register"));
@@ -49,9 +52,9 @@ const App = () => {
           }
         >
           <ThemeProvider theme={theme}>
-            <ComponentsImport.Loading />
-            <ComponentsImport.Notify />
-            <ComponentsImport.Alert />
+            <CTImport.Loading />
+            <CTImport.Notify />
+            <CTImport.Alert />
             <Routes>
               <Route path={rt.vehicles} element={<h1>Veiculos</h1>} />
               <Route path={rt.login} element={<Auth />} />
