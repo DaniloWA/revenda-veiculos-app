@@ -14,6 +14,7 @@ import { CTImport } from "./view/components";
 
 const Auth = lazy(() => import("./view/components/Auth"));
 const Register = lazy(() => import("./view/components/Register"));
+const Vehicles = lazy(() => import("./view/components/Vehicles"));
 
 const createTheme =
   process.env.NODE_ENV === "production"
@@ -56,7 +57,7 @@ const App = () => {
             <CTImport.Notify />
             <CTImport.Alert />
             <Routes>
-              <Route path={rt.vehicles} element={<h1>Veiculos</h1>} />
+              <Route path={rt.vehicles} element={<Vehicles />} />
               <Route path={rt.login} element={<Auth />} />
               <Route path={rt.register} element={<Register />} />
               <Route path={rt.home} element={<Auth />} />
