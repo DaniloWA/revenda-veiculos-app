@@ -26,3 +26,20 @@ a:hover {
 .header .nav-link .icon-lg {
   font-size: 22px;
 }
+
+.header .dropdown:hover > .dropdown-menu {
+  display: block;
+}
+
+.header .dropdown-menu {
+  box-shadow: rgba(0, 0, 0, 0.08) 0px 4px 16px 0px,
+    rgba(0, 0, 0, 0.06) 0px 2px 6px 0px;
+  border: 1px solid #eee;
+  top: 80%;
+}
+
+.header .dropdown-item {
+  padding: 10px 15px;
+  font-weight: 600;
+  color: #444;
+}
