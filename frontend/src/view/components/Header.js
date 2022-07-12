@@ -39,7 +39,19 @@ export default function Header() {
   return (
     <>
       {window.innerWidth < 577 ? (
-        <div></div>
+        <AppBar position="fixed">
+          <Toolbar>
+            <IconButton
+              edge="start"
+              color="inherit"
+              aria-label="menu"
+              onClick={() => setState({ open: true })}
+            >
+              <MdMenu />
+            </IconButton>
+            <Typography variant="h6">{props.title}</Typography>
+          </Toolbar>
+        </AppBar>
       ) : (
         <nav className="header navbar navbar-expand-lg navbar-light bg-white p-0">
           <div className="container">
