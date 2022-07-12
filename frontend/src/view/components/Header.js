@@ -29,7 +29,7 @@ import {
 } from "@material-ui/core";
 import { MdMenu } from "react-icons/md";
 
-export default function Header() {
+export default function Header(props) {
   const [state, setState] = React.useState({ open: false });
   const [collapse, setCollapse] = React.useState({
     site: false,
@@ -125,6 +125,121 @@ export default function Header() {
           </div>
         </nav>
       )}
+      <Drawer
+        anchor="left"
+        open={state.open}
+        onClose={() => setState({ open: false })}
+      >
+        <div style={{ width: 320, maxWidth: window.innerWidth - 70 }}>
+          <List component="nav" className="menu-mobile">
+            <ListItem>
+              <img
+                src="/logo.png"
+                alt="CAR CRM"
+                height={40}
+                className="img-fluid logo-mobile"
+              />
+            </ListItem>
+
+            <ListItem>test@gmail.com</ListItem>
+            <Divider className="mt-2 mb-3" />
+
+            <ListItem>
+              <ListItemIcon>
+                <FaCar />
+              </ListItemIcon>
+              <ListItemText primary="Veiculos" />
+            </ListItem>
+
+            <ListItem>
+              <ListItemIcon>
+                <FaUsers />
+              </ListItemIcon>
+              <ListItemText primary="Proprietários" />
+            </ListItem>
+
+            <ListItem
+              button
+              onClick={() =>
+                setCollapse({ site: collapse.site ? false : true })
+              }
+            >
+              <ListItemIcon>
+                <FaLaptop />
+              </ListItemIcon>
+              <ListItemText primary="Site" />
+              {collapse.site ? <FaAngleUp /> : <FaAngleDown />}
+            </ListItem>
+
+            <Collapse in={collapse.site} timeout="auto" unmountOnExit>
+              <List component="div" disablePadding>
+                <ListItem>
+                  <ListItemText
+                    primary="Otimização para o Google"
+                    className="pl-5"
+                  />
+                </ListItem>
+                <ListItem>
+                  <ListItemText
+                    primary="Unidades e Telefones"
+                    className="pl-5"
+                  />
+                </ListItem>
+                <ListItem>
+                  <ListItemText primary="Minha Logo" className="pl-5" />
+                </ListItem>
+                <ListItem>
+                  <ListItemText primary="Dominio" className="pl-5" />
+                </ListItem>
+                <ListItem>
+                  <ListItemText primary="Configurações" className="pl-5" />
+                </ListItem>
+              </List>
+            </Collapse>
+
+            <Divider className="mt-2 mb-2" />
+
+            <ListItem
+              button
+              onClick={() =>
+                setCollapse({ financeiro: collapse.financeiro ? false : true })
+              }
+            >
+              <ListItemIcon>
+                <FaCreditCard />
+              </ListItemIcon>
+              <ListItemText primary="Financeiro" />
+              {collapse.financeiro ? <FaAngleUp /> : <FaAngleDown />}
+            </ListItem>
+            <Collapse in={collapse.financeiro} timeout="auto" unmountOnExit>
+              <List component="div" disablePadding>
+                <ListItem>
+                  <ListItemText primary="Meu Plano" className="pl-5" />
+                </ListItem>
+                <ListItem>
+                  <ListItemText primary="Minhas Transações" className="pl-5" />
+                </ListItem>
+              </List>
+            </Collapse>
+
+            <ListItem>
+              <ListItemIcon>
+                <FaWhatsapp />
+              </ListItemIcon>
+              <ListItemText primary="Ajuda" />
+            </ListItem>
+
+            <Divider className="mt-2 mb-2" />
+
+            <ListItem>
+              <ListItemIcon>
+                <FaSignOutAlt />
+              </ListItemIcon>
+              <ListItemText primary="Sair" />
+            </ListItem>
+          </List>
+        </div>
+      </Drawer>
     </>
   );
 }
