@@ -8,8 +8,26 @@ import {
   FaCreditCard,
   FaWhatsapp,
   FaSignInAlt,
+  FaAngleUp,
+  FaAngleDown,
+  FaSignOutAlt,
 } from "react-icons/fa";
-import { MenuList, MenuItem } from "@material-ui/core";
+import {
+  MenuList,
+  MenuItem,
+  AppBar,
+  Toolbar,
+  IconButton,
+  Typography,
+  Drawer,
+  List,
+  ListItem,
+  ListItemIcon,
+  ListItemText,
+  Divider,
+  Collapse,
+} from "@material-ui/core";
+import { MdMenu } from "react-icons/md";
 
 export default function Header() {
   return (
