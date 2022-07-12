@@ -30,6 +30,12 @@ import {
 import { MdMenu } from "react-icons/md";
 
 export default function Header() {
+  const [state, setState] = React.useState({ open: false });
+  const [collapse, setCollapse] = React.useState({
+    site: false,
+    financeiro: false,
+  });
+
   return (
     <>
       {window.innerWidth < 577 ? (
