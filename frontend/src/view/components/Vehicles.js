@@ -4,7 +4,7 @@ import Header from "../components/Header";
 export default function Vehicles() {
   return (
     <>
-      <Header />
+      <Header title="Veiculos" />
     </>
   );
 }
